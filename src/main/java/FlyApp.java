@@ -53,7 +53,6 @@ public class FlyApp {
 						try {
 							ServiceJPA.createFly(sc);
 						} catch (InterruptedException | ParseException e) {
-							// TODO Auto-generated catch block
 							e.printStackTrace();
 						}
 							
@@ -108,7 +107,6 @@ public class FlyApp {
 						try {
 							ServiceJPA.createReservation(sc);
 						} catch (InterruptedException | ParseException e) {
-							// TODO Auto-generated catch block
 							e.printStackTrace();
 						}
 						break;
