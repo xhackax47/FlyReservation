@@ -1,51 +1,32 @@
+package services;
+
 import java.text.ParseException;
 import java.util.Scanner;
 
 import dao.Service;
 import dao.ServiceJPA;
+import model.Menus;
 
-public class FlyApp {
-
-	public static void main(String[] args) {
-		
+public class Fly {
+	
+	public static void start() {
 		final Scanner sc = new Scanner(System.in);
 		int selection = 0;
 		int flightSelection = 0;
 		int reservationSelection = 0;
 
 		do {
-
-			System.out.println("Bonjour et bienvenue dans le système Fly Reservation");
-			System.out.println("");
-			System.out.println("Menu Fly Reservation");
-			System.out.println("-------------------------\n");
-			System.out.println("1 - Gestion des vols");
-			System.out.println("2 - Gestion des réservations");
-			System.out.println("3 - Quit");
-			System.out.println("");
-			System.out.print("Entrez votre choix (1,2 ou 3): ");
+			Menus.afficheMenuGeneral();
 			String s=sc.nextLine();
-			 selection=Integer.parseInt(s);
-		//	selection = Integer.parseInt(sc.nextLine());
-			
+			selection=Integer.parseInt(s);
+			 
 			search:
 			switch (selection) {
 			case 1:
 				do {
-					System.out.println("");
-					System.out.println("Gestion des vols");
-					System.out.println("-------------------------\n");
-					System.out.println("1 - Création d'un vol");
-					System.out.println("2 - Liste des vols");
-					System.out.println("3 - Rechercher avion par numéro de vol");
-					System.out.println("4 - Rechercher avion par ville départ et arrivée");
-					System.out.println("5 - Quitter et revenir au menu général");
-					System.out.println("");
-					System.out.print("Entrez votre choix (1,2,3,4 ou 5): ");
-					
+					Menus.afficheMenuVols();
 					String s2=sc.nextLine();
-					 flightSelection=Integer.parseInt(s2);
-					//flightSelection = Integer.parseInt(sc.nextLine());
+					flightSelection=Integer.parseInt(s2);
 					
 					switch(flightSelection) {
 					case 1:
@@ -88,19 +69,9 @@ public class FlyApp {
 				break;
 			case 2:
 				do {		
-					System.out.println("");
-					System.out.println("Gestion des reservations");
-					System.out.println("-------------------------\n");
-					System.out.println("1 - Création d'une reservation");
-					System.out.println("2 - Liste des reservations par vol");
-					System.out.println("3 - Annuler une reservation");
-					System.out.println("4 - Afficher toutes les reservations d'une personne");
-					System.out.println("5 - Quitter et revenir au menu général");
-					System.out.println("");
-					System.out.print("Entrez votre choix (1,2,3,4 ou 5): ");
+					Menus.afficheMenuReservations();
 					String s3=sc.nextLine();
 					reservationSelection = Integer.parseInt(s3);
-//					reservationSelection = Integer.parseInt(sc.nextLine());
 					
 					switch(reservationSelection) {
 					case 1:
@@ -153,4 +124,5 @@ public class FlyApp {
 		System.out.flush();
 		System.out.close();
 	}
+
 }
